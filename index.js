@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const connectDatabase = require("./configs/connectDatabase");
 
 const server = express();
 
@@ -15,6 +16,7 @@ const PORT = process.argv[2] || 3004;
 
 server.listen(PORT,async ()=>{
     try{
+        await connectDatabase();
         console.log(`server listening on port ${PORT}`)
     }
     catch(err){
