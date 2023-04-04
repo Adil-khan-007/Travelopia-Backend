@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const connectDatabase = require("./configs/connectDatabase");
+const Router = require("./Routes/Routes");
 
 const server = express();
 
@@ -8,9 +9,7 @@ server.use(express.json());
 
 server.use(cors());
 
-server.use("/",(req,res)=>{
-    res.send("working")
-})
+server.use("/",Router)
 
 const PORT = process.argv[2] || 3004;
 
